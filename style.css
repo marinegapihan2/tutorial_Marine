@@ -1,6 +1,18 @@
+:root {
+  --color-accent: oklch(65% 50% 0); /* Primary accent color in OKLCH format */
+  --border-gray: oklch(80% 3% 200); /* Gray for borders */
+  /* ADD the rest of the color definitions here if needed! */
+}
+
 body {
-    /* Set line height to 1.5 times the font size
-       and use the OS’s UI font as the website font
-     */
-    font: 100%/1.5 system-ui;
-   }
+  font: 100%/1.5 futura; /* 100% font size, 1.5 line height, system font. Same as in lab 1 */
+  max-width: 50ch;
+  margin-inline:20ch ;
+  padding: 100px;
+}
+
+nav {
+  display: flex; /* Turns nav into a flex container */
+
+  /* You will need to continue writing here for step 2.3 */
+}
