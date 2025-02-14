@@ -1,18 +1,50 @@
 :root {
-  --color-accent: oklch(65% 50% 0); /* Primary accent color in OKLCH format */
-  --border-gray: oklch(80% 3% 200); /* Gray for borders */
-  /* ADD the rest of the color definitions here if needed! */
+  --color-accent: oklch(65% 50% 0);
+  accent-color: var(--color-accent);
+  --border-gray: oklch(80% 3% 200);
 }
 
 body {
   font: 100%/1.5 futura; /* 100% font size, 1.5 line height, system font. Same as in lab 1 */
-  max-width: 50ch;
-  margin-inline:20ch ;
-  padding: 100px;
+  max-width: 75ch;
+  margin-inline:34px ;
+  padding: 50px;
+}
+nav ul,
+nav li {
+    display: contents;
 }
 
 nav {
-  display: flex; /* Turns nav into a flex container */
+  display: flex
+}
 
-  /* You will need to continue writing here for step 2.3 */
+nav a {
+  flex: 1;
+  text-decoration: none ;
+  color: inherit;
+  text-align: center;
+  padding: 0.5em;
+  margin-bottom: 3ch ;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: oklch(80% 3% 200)
+}
+
+nav a.current {
+  border-bottom: 0.4em solid oklch(80% 3% 200);
+  padding-bottom: calc(10px - 0.4em);
+}
+
+
+
+nav a:hover {
+border-bottom:0.4em solid var(--color-accent) ;
+background-color: oklch(from var(--color-accent)95% 5% h);
+}
+
+input,
+textarea,
+button {
+    font: inherit; /* Ensures form elements use the same font as the body */
 }
