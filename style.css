@@ -8,7 +8,7 @@ body {
   font: 100%/1.5 futura; /* 100% font size, 1.5 line height, system font. Same as in lab 1 */
   max-width: 75ch;
   margin-inline:34px ;
-  padding: 50px;
+  padding: 75px;
 }
 nav ul,
 nav li {
@@ -107,7 +107,49 @@ h2{
   font-size: 200%
 }
 
+p{
+  font-size: 150%;
+}
+
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
   text-wrap: balance;
+}
+
+#Resume {
+  max-width: 150rem;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 0.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#Resume section {
+  margin-bottom: 3rem;
+  padding: 2rem;
+  min-height: 350px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+}
+
+#Resume h1{
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #0a0a0b;
+}
+#Resume h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #070708;
+}
+
+#Resume strong {
+  display: block;
+  font-size: 1.1rem;
+  color: #2c3e50;
+}
+
+#Resume p{
+  font-size: 100%;
 }
