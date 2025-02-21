@@ -5,21 +5,17 @@ function $$ (selector, context = document) {
 	return Array.from(context.querySelectorAll(selector));
 }
 
-
-
-// TODO: Add the $$ function here!
-
-// STEP 2
-// 2.1
 let navLinks = $$("nav a");
 
 // 2.2
-let currentLink = "TODO: FILL IN!!"
+let currentLink = navLinks.find(a => a.host === location.host && a.pathname === location.pathname)
+
 
 // 2.3
 if (currentLink) { // or if (currentLink !== undefined)
-	// TODO: FILL IN!!
+	currentLink?.classList.add("current");
 }
+
 
 // STEP 3
 // TODO: Remove <nav> menu from all HTML pages!
