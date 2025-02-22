@@ -7,14 +7,14 @@ function $$ (selector, context = document) {
 
 let navLinks = $$("nav a");
 
-// 2.2
-let currentLink = navLinks.find(a => a.host === location.host && a.pathname === location.pathname)
+// // 2.2
+// let currentLink = navLinks.find(a => a.host === location.host && a.pathname === location.pathname)
 
 
-// 2.3
-if (currentLink) { // or if (currentLink !== undefined)
-	currentLink?.classList.add("current");
-}
+// // 2.3
+// if (currentLink) { // or if (currentLink !== undefined)
+// 	currentLink?.classList.add("current");
+// }
 
 
 // STEP 3
@@ -23,13 +23,14 @@ if (currentLink) { // or if (currentLink !== undefined)
 
 // step 3.1
 let pages = [
-	{url: "", title: "Home"},
+	{url: "./", title: "Home"},
 	{url: "projects/", title: "Projects"},
-	// TODO: add the rest of your pages here
+    {url: "contact/", title: "Contact"},
+    {url: "CV/", title: "Resume"}
 ];
 
-let nav = document.createElement("TODO: FILL IN!!");
-document.body.prepend("TODO: FILL IN!!");
+let nav = document.createElement("nav");
+document.body.prepend(nav);
 
 // TODO: Inside index.html (our home page), add a class="home" attribute to the <html lang="en"> element!
 const ARE_WE_HOME = document.documentElement.classList.contains("home");
@@ -40,7 +41,7 @@ for (let p of pages) {
 
 	// Create link and add it to nav
     if (!ARE_WE_HOME && !url.startsWith("http")) {
-        url = "TODO: FILL IN RELATIVE URL"
+        url = "../" + url;
     }
 
 	nav.insertAdjacentHTML("beforeend", `<a href="${ url }">${ title }</a>` );
