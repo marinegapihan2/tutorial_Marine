@@ -26,7 +26,8 @@ let pages = [
 	{url: "./", title: "Home"},
 	{url: "projects/", title: "Projects"},
     {url: "contact/", title: "Contact"},
-    {url: "CV/", title: "Resume"}
+    {url: "CV/", title: "Resume"},
+    {url: "https://github.com/marinegapihan2", title: "GitHub" }
 ];
 
 let nav = document.createElement("nav");
@@ -35,23 +36,23 @@ document.body.prepend(nav);
 // TODO: Inside index.html (our home page), add a class="home" attribute to the <html lang="en"> element!
 const ARE_WE_HOME = document.documentElement.classList.contains("home");
 
-for (let p of pages) {
-	let url = p.url;
-	let title = p.title;
+// for (let p of pages) {
+// 	let url = p.url;
+// 	let title = p.title;
 
-	// Create link and add it to nav
-    if (!ARE_WE_HOME && !url.startsWith("http")) {
-        url = "../" + url;
-    }
+// 	// Create link and add it to nav
+//     if (!ARE_WE_HOME && !url.startsWith("http")) {
+//         url = "../" + url;
+//     }
 
-	nav.insertAdjacentHTML("beforeend", `<a href="${ url }">${ title }</a>` );
-}
+// 	nav.insertAdjacentHTML("beforeend", `<a href="${ url }">${ title }</a>` );
+// }
 
 
 // step 3.2
 // TODO: Comment out the `for (let p of pages) {...}` loop you made in step 3.1 and uncomment the for loop below! I have helped you restructure the loop a bit in a way that may be confusing from the lab instructions
 
-/* for (let p of pages) {
+for (let p of pages) {
 	let url = p.url;
 	let title = p.title;
 
@@ -60,20 +61,20 @@ for (let p of pages) {
         url = "../" + url;
     }
 
-    let a = document.createElement("TODO: create an <a> element!");
+    let a = document.createElement("a");
     a.href = url;
     a.textContent = title;
 
     if (a.host === location.host && a.pathname === location.pathname) {
-        a.classList.add("TODO: FILL IN CLASS NAME");
-    }
+         a.classList.add("current");
+         }
 
-    if ("TODO: FILL IN CONDITION TO OPEN LINK IN NEW TAB") {
+    if (a.host!==location.host) {
         a.target = "_blank";
-    }
+        }
 
     nav.append(a);
-} */
+}
 
 // STEP 4
 // step 4.1
@@ -84,9 +85,9 @@ document.body.insertAdjacentHTML("afterbegin", `
 	<label class="color-scheme">
 		Theme:
 		<select>
-			<option value="light dark">TODO: ADD OPTION LABEL HERE</option>
-            <option value="dark">TODO: ADD OPTION LABEL HERE</option>
-            TODO: ADD LIGHT MODE OPTION HERE!
+			<option value="dark light">Automatic</option>
+            <option value="dark">Dark</option>
+            <option value="light">Light</option>
 		</select>
 	</label>`
 );
@@ -95,23 +96,24 @@ document.body.insertAdjacentHTML("afterbegin", `
 // TODO: Inside your styles.css file, add styling to move the switcher with class .color-scheme to the top right corner. There is nothing to do in this file in this step
 
 // step 4.4
-let select = document.querySelector("TODO: FILL IN SELECTOR");
+let select = document.querySelector("select");
 
 select.addEventListener("input", function (event) {
 	console.log("color scheme changed to", event.target.value);
 
-    // TODO: use document.documentElement.style.setProperty to set the color scheme here! (hint: take a look at the handout)
+    document.documentElement.style.setProperty('color-scheme', event.target.value)
 
-    // TODO: (step 4.5.1) uncomment the line below!
-    // localStorage.colorScheme = event.target.value;
+localStorage.colorScheme = event.target.value;
 });
 
 
 // step 4.5 (continued)
 // Reminder: uncomment line inside the event listener for 4.5.1
-if ("colorScheme" in localStorage) {
-    // TODO: set color scheme to the stored local value (hint: look at handout)
+if (localStorage.colorScheme) {
+	document.documentElement.style.setProperty("color-scheme", localStorage.colorScheme);
+	select.value = localStorage.colorScheme;
 }
+
 
 // STEP 5 (OPTIONAL)
 // Note: This is an optional part of the lab! If you want to do it, uncomment the lines below and fill in the TODOs. Otherwise, leave the lines commented out.

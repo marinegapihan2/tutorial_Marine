@@ -2,6 +2,7 @@
   --color-accent: oklch(65% 50% 0);
   accent-color: var(--color-accent);
   --border-gray: oklch(80% 3% 200);
+  color-scheme: dark;
 }
 
 body {
@@ -16,8 +17,9 @@ nav li {
 }
 
 nav {
-  display: flex
-}
+  display: flex;
+  }
+
 
 nav a {
   flex: 1;
@@ -28,19 +30,18 @@ nav a {
   margin-bottom: 3ch ;
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  border-bottom-color: oklch(80% 3% 200)
+  border-color: oklch(50% 10% 200 / 40%);
 }
 
 nav a.current {
-  border-bottom: 0.4em solid oklch(80% 3% 200);
+  border-bottom: 0.4em solid oklch(50% 10% 200/40%);
   padding-bottom: calc(10px - 0.4em);
 }
 
 
-
 nav a:hover {
 border-bottom:0.4em solid var(--color-accent) ;
-background-color: oklch(from var(--color-accent)95% 5% h);
+background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 }
 
 input,
@@ -61,6 +62,16 @@ label{
   grid-column: 1;
   font-size: 2rem;
   margin-left: 1ch;
+}
+
+label.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: inline-flex;
+  gap: 4px;
+  font-size: 90%;
+  font-family: inherit;
 }
 
 input,
@@ -121,7 +132,7 @@ h1, h2, h3, h4, h5, h6 {
 #Resume {
   max-width: 150rem;
   margin: 0 auto;
-  background-color: #fff;
+  background-color: #ffffff;
   padding: 0.5rem;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -154,4 +165,5 @@ h1, h2, h3, h4, h5, h6 {
 
 #Resume p{
   font-size: 100%;
+  color: #070708;
 }
