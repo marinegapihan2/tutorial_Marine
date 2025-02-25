@@ -18,8 +18,6 @@ let navLinks = $$("nav a");
 
 
 // STEP 3
-// TODO: Remove <nav> menu from all HTML pages!
-// TODO: Comment out the step 2 code in this file!
 
 // step 3.1
 let pages = [
@@ -33,7 +31,6 @@ let pages = [
 let nav = document.createElement("nav");
 document.body.prepend(nav);
 
-// TODO: Inside index.html (our home page), add a class="home" attribute to the <html lang="en"> element!
 const ARE_WE_HOME = document.documentElement.classList.contains("home");
 
 // for (let p of pages) {
@@ -50,13 +47,11 @@ const ARE_WE_HOME = document.documentElement.classList.contains("home");
 
 
 // step 3.2
-// TODO: Comment out the `for (let p of pages) {...}` loop you made in step 3.1 and uncomment the for loop below! I have helped you restructure the loop a bit in a way that may be confusing from the lab instructions
 
 for (let p of pages) {
 	let url = p.url;
 	let title = p.title;
 
-    // Create correct relative link and add it to nav
     if (!ARE_WE_HOME && !url.startsWith("http")) {
         url = "../" + url;
     }
@@ -78,7 +73,6 @@ for (let p of pages) {
 
 // STEP 4
 // step 4.1
-// TODO: Inside your styles.css file, adjust your navigation menu colors! There is nothing to do in this file in this step.
 
 // step 4.2
 document.body.insertAdjacentHTML("afterbegin", `
@@ -93,7 +87,6 @@ document.body.insertAdjacentHTML("afterbegin", `
 );
 
 // step 4.3
-// TODO: Inside your styles.css file, add styling to move the switcher with class .color-scheme to the top right corner. There is nothing to do in this file in this step
 
 // step 4.4
 let select = document.querySelector("select");
@@ -108,7 +101,6 @@ localStorage.colorScheme = event.target.value;
 
 
 // step 4.5 (continued)
-// Reminder: uncomment line inside the event listener for 4.5.1
 if (localStorage.colorScheme) {
 	document.documentElement.style.setProperty("color-scheme", localStorage.colorScheme);
 	select.value = localStorage.colorScheme;
@@ -121,17 +113,18 @@ if (localStorage.colorScheme) {
 // TODO: Inside the /contact/index.html, remove the enctype and method attributes from the <form> element. Remove the "Email" label and input as well.
 
 // TODO: uncomment below to select the form element!
-// let form = document.querySelector("form");
+let form = document.querySelector("form");
 
-// form?.addEventListener("TODO: FILL IN EVENT WE ARE WAITING FOR", function (event) {
-//     event.preventDefault();
-//     let data = new FormData(form);
+form?.addEventListener("submit", function (event) {
+    event.preventDefault();
+    let data = new FormData(form);
 
-    // let url = form.action + "?";
-    // for (let [name, value] of data) {
-	//     url += (name + "=" + value + "&")
-	//     console.log(name, value);
-    // }
+    let url = form.action + "?";
+    for (let [name, value] of data) {
+	    url += (name + "=" + value + "&")
+	    console.log(name, value);
+    }
 
-        // TODO: open url here!
-// })
+    location.href = url;
+
+})
